@@ -32,7 +32,7 @@ const MAP_NAME = {
 # properties
 * **width** - width of the enemy zone in tiles  
   `default: 80`
-* **height** - height of the enemy zone in tiles
+* **height** - height of the enemy zone in tiles  
   `default: 15`
 * **index** - ###  
   `default: decided by devs`
