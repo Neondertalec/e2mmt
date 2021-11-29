@@ -8,7 +8,8 @@ const MAP_NAME = {
     index: 19,
     disableAbilities: false, //optional
     canShift: true, //optional
-    speedMult: {x:1, y:1} //optional
+    speedMult: {x:1, y:1}, //optional
+    hero: "magmax" //optional
   },
   "1": {
     "properties":{//optional 
@@ -22,7 +23,8 @@ const MAP_NAME = {
         radius: 5,
         speed: 5,
         aditional:{//this and everything inside is optional
-          switchTime: 2000//works only if the enemy type incudes switch
+          switchTime: 2000,//works only if the enemy type incudes switch
+          auraSize: 200//works only if the enemy has an aura
         }
       }
     ]
@@ -45,106 +47,115 @@ const MAP_NAME = {
   `2x slower: {x: 0.5, y: 0.5}`  
   `2x faster: {x: 2, y: 2}`  
   `l/r only: {x: 1, y: 0}`  
+* **hero** - the that is going to be used in the areas  
+  `default: undefined`  
 
+additional
+--
+* **switchTime** - time required for the enemy to switch  
+  `default: depends on emeny type`
+* **auraSize** - the size of an aura  
+  `default: depends on emeny type`
 # all enemies
 
 ```css
-normal  
-movekill  
-stopkill  
-corrosive  
-outside  
-immunecorrosive  
-immunecorrosivenoshifthuge  
-immunecorrosiveless  
-immunecorrosivenoshift  
-switch  
-halfswitch  
-quarterswitch  
-seizureswitch  
-disabled  
-wall  
-sizing  
-wavy  
-zigzag  
-turning  
-sniper  
-octo  
-icicle  
-ice sniper  
-ice octo  
-tired  
-pull  
-push  
-nebula  
-blackhole  
-megapull  
-zoning  
-speed sniper  
-regen sniper  
-immunedisabler  
-immune  
-immunepush  
-immunepull  
-immunefreezing  
-dasher  
-dasherswitch  
-lag  
-warp  
-sidewarp  
-cancer  
-homing  
-homingswitch  
-tp  
-snake  
-evilsnake  
-scared  
-glitch  
-growing  
-trap  
-aaaa  
-path2  
-diagonal  
-wallsprayer  
-liquid  
-stutter  
-permafrost  
-water  
-frog  
-evilfrog  
-yeet  
-sideways  
-transangle  
-wipeu  
-wipeu2  
-sweepu  
-nut  
-blind  
-tornado  
-slower  
-slippery  
-sneaky  
-draining  
-megaDraining  
-megafreezing  
-soldier  
-creeper  
-mine  
-jumper  
-eviljumper  
-disabler  
-freezing  
-subzero  
-burning  
-noshift  
-invert  
-spiral  
-sidestep  
-ultraspiral  
-oscillating  
-retracing  
-rain  
-path  
-sliding  
+aaaa
 backdash
+blackhole
+blind
+burning
+cancer
+corrosive
+creeper
+dasher
+dasherswitch
+diagonal
+disabled
+disabler
+draining
+evilfrog
+eviljumper
+evilsnake
+freezing
+frog
+glitch
+growing
+halfswitch
+homing
+homingswitch
+ice octo
+ice sniper
+icicle
+immune
+immunecorrosive
+immunecorrosiveless
+immunecorrosivenoshift
+immunecorrosivenoshifthuge
+immunedisabler
+immunefreezing
+immunepull
+immunepush
+invert
+jumper
+lag
+liquid
+megaDraining
+megafreezing
+megapull
+mine
+movekill
+nebula
+neko
+normal
+noshift
+nut
+octo
+oscillating
+outside
+path
+path2
+permafrost
+pull
+push
+quarterswitch
+rain
+regen sniper
+retracing
+scared
+seizureswitch
+sidestep
+sidewarp
+sideways
+sizing
+sliding
+slippery
+slower
+snake
+sneaky
+sniper
+soldier
+speed sniper
+spiral
+stopkill
+stutter
+subzero
+sweepu
+switch
+tired
+tornado
+tp
+transangle
+trap
+turning
+ultraspiral
+wall
+wallsprayer
+warp
+water
+wavy
+wipeu
+wipeu2
+yeet
+zigzag
+zoning
 ```
