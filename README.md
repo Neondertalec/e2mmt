@@ -137,6 +137,7 @@ soldier
 speed sniper
 spiral
 stopkill
+stopmoveswitch
 stutter
 subzero
 sweepu
