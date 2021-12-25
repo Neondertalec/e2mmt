@@ -9,7 +9,8 @@ const MAP_NAME = {
     disableAbilities: false, //optional
     canShift: true, //optional
     speedMult: {x:1, y:1}, //optional
-    hero: "magmax" //optional
+    hero: "magmax", //optional
+    victory: true, //optional
   },
   "1": {
     "properties":{//optional 
@@ -25,13 +26,21 @@ const MAP_NAME = {
         aditional:{//this and everything inside is optional
           switchTime: 2000,//works only if the enemy type incudes switch
           auraSize: 200//works only if the enemy has an aura
-        }
+        },
+        spawnerData:[{//optional
+          spawnerTime:1000,
+          spawnerTimer:0,//optional
+          type: "normal",
+          radius: 5,
+          speed: 5,
+          life:2000,
+        }]
       }
     ]
   }
 }
 ```
-# properties
+# Properties
 * **width** - width of the enemy zone in tiles  
   `default: 80`
 * **height** - height of the enemy zone in tiles  
@@ -49,14 +58,69 @@ const MAP_NAME = {
   `l/r only: {x: 1, y: 0}`  
 * **hero** - the that is going to be used in the areas  
   `default: undefined`  
+* **victory** - wether the area is displayed as victory or no  
+  `default: false`
+  `valid: Bool`
 
-additional
+# Enemy Data
+* **type** - the type of the enemy  
+  `valid: "type" | ["type1", "type2"]`
+* **amount** - the count of enemies  
+  `valid: Number`
+* **radius** - the radius of the enemy  
+  `valid: Number`
+* **speed** - the speed of the enemy  
+  `valid: Number`
+* **angle** - the angle of the enemy  
+  `default: none`  
+  `valid: Number`
+* **x | y** - spawn position in pixels  
+  `default: none`  
+  `valid: Number`
+* **tx | ty** - spawn position in tiles  
+  `default: none`  
+  `valid: Number`
+* **path** - the path of the `path` enemy in tiles and `path2` enemy in pixels  
+  `default: none`  
+  `valid: [[x: Number, y: Number, speed: Number]]`  
+  `example: [[1, 1, 2], [4, 4, 2]]`
+* **aditional** - additional data  
+  `default: none`  
+  `valid: {see Additional}`
+* **spawnerData** - the spawner of the enemy  
+  `default: none`  
+  `valid: [{see Spawner data}]`
+  
+Additional
 --
 * **switchTime** - time required for the enemy to switch  
   `default: depends on emeny type`
 * **auraSize** - the size of an aura  
   `default: depends on emeny type`
-# all enemies
+
+Spawner data
+--
+* **type | speed | radius | angle | x | y | tx | tx** are the same as in Enemy data
+* **rangle** - the angle depenging on the parent enemy  
+  `default: none`  
+  `valid: Number`
+* **spawnerTime** - the interval of the new enemy creation  
+  `valid: Number`
+* **spawnerTimer** - the offset of the Timer
+  `default: spawnerTime`  
+  `valid: Number`
+* **life** - the life of the new enemy  
+  `valid: Number`
+
+Note
+--
+* **tx | ty | path(*path enemy*)** - the position is in the bottom-right of the tile, not the center of it. use `.5` to put it in the center.
+* Non specified areas (missing areas) will always be victory. If there is no area after a missing area, you will get disconnected.  
+  example: area `39, 40, 42, 43`. you will go 39 -> 40 -> victoy -> 42 -> 43  
+  example2: area `39, 40, 43, 44`. you will go 39 -> 40 -> victoy -> death screen
+* Spawner data may have a negative **spawnerTimer**. The enemies will be created as if the spawner was producing them for *N(-specified)* ms.
+
+# All enemies
 
 ```css
 aaaa
