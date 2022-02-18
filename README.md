@@ -11,6 +11,11 @@ const MAP_NAME = {
     speedMult: {x:1, y:1}, //optional
     hero: "magmax", //optional
     victory: true, //optional
+    deathTimer: 60, //optional
+    areaL: 0, //optional
+    areaR: 2, //optional
+    areaN: 1, //optional
+    
   },
   "1": {
     "properties":{//optional 
@@ -59,8 +64,18 @@ const MAP_NAME = {
 * **hero** - the that is going to be used in the areas  
   `default: undefined`  
 * **victory** - wether the area is displayed as victory or no  
-  `default: false`
-  `valid: Bool`
+  `default: false`  
+  `valid: Bool`  
+* **deathTimer** - death timer in seconds  
+  `default: 60`  
+  `valid: Number`  
+* **areaL** - are you get teleported to if you go to the left portal  
+  **areaR** - are you get teleported to if you go to the right portal  
+  `default: areaNumber ± 1`  
+  `valid: Number / String`  
+* **areaN** - the area stats you have in the area. e.g, if 1, energy = 30, regen = 1  
+  `default: areaNumber`  
+  `valid: Number`  
 
 # Enemy Data
 * **type** - the type of the enemy  
@@ -116,17 +131,20 @@ Note
 --
 * **tx | ty | path(*path enemy*)** - the position is in the bottom-right of the tile, not the center of it. use `.5` to put it in the center.
 * Non specified areas (missing areas) will always be victory. If there is no area after a missing area, you will get disconnected.  
-  example: area `39, 40, 42, 43`. you will go 39 -> 40 -> victoy -> 42 -> 43  
-  example2: area `39, 40, 43, 44`. you will go 39 -> 40 -> victoy -> death screen
+  example: area `39, 40, 42, 43`. you will go 39 -> 40 -> victory -> 42 -> 43  
+  example2: area `39, 40, 43, 44`. you will go 39 -> 40 -> victory -> death screen
 * Spawner data may have a negative **spawnerTimer**. The enemies will be created as if the spawner was producing them for *N(-specified)* ms.
 
 # All enemies
 
 ```css
 aaaa
+amogus
 backdash
+become
 blackhole
 blind
+bouncy
 burning
 cancer
 corrosive
@@ -143,6 +161,7 @@ evilsnake
 freezing
 frog
 glitch
+glitchednormal
 growing
 halfswitch
 homing
@@ -160,6 +179,7 @@ immunefreezing
 immunepull
 immunepush
 invert
+invisible
 jumper
 lag
 liquid
@@ -174,6 +194,7 @@ normal
 noshift
 nut
 octo
+ok
 oscillating
 outside
 path
@@ -183,9 +204,11 @@ pull
 push
 quarterswitch
 rain
+reallyglitchednormal
 regen sniper
 retracing
 scared
+seizure
 seizureswitch
 sidestep
 sidewarp
@@ -193,6 +216,7 @@ sideways
 sizing
 sliding
 slippery
+slowdrainswitch
 slower
 snake
 sneaky
@@ -200,17 +224,20 @@ sniper
 soldier
 speed sniper
 spiral
+steam
 stopkill
 stopmoveswitch
 stutter
 subzero
 sweepu
 switch
+tetar
 tired
 tornado
 tp
 transangle
 trap
+trolled
 turning
 ultraspiral
 wall
@@ -218,6 +245,7 @@ wallsprayer
 warp
 water
 wavy
+wind
 wipeu
 wipeu2
 yeet
