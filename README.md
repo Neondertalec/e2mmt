@@ -199,7 +199,7 @@ Zones data
   `valid:`  
   * `"wall" - you cant get on top of it`  
   * `"tp" - when you touch it, you get teleported by the tpTo / tpBy`
-  * `"kill" - kills you when you touch it. Can't get on top of it too.`
+  * `"lava" - kills you when you touch it. Can't get on top of it too.`
   * `"speed" - applies the speed effect`  
   `You can specifiy a non existing one if you dont wish to have any of the above effect.`
 * **texture** - the way you see this tile.  
